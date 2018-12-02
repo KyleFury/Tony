@@ -1,0 +1,41 @@
+import java.util.Scanner; // How to get user input
+
+public class HelloWorld {
+
+	public static void main(String[] args) { 
+		Scanner input = new Scanner (System.in);  // How to get user input
+		System.out.print("Enter your string: ");  
+		String s = input.next(); // Get input, store as string "s"
+		System.out.println(s);  // Test print, can be deleted
+		char[] a = s.toCharArray(); //Assign string "s" to a character array "a"
+		System.out.println(a[0]); // Test print, can be deleted
+		int length = a.length;
+		System.out.println(length); // Test print, can be deleted
+		System.out.print("How many characters should we check?: ");
+		String check = input.next(); // Get input of how much to check
+		int c = Integer.parseInt(check); // Turn string input into integer
+		System.out.println(c); // Test print, can be deleted
+		int fk = length - c; // Assign end point integer
+		int always = 0; // Assign starting point integer
+		boolean judgement = true; // Assign true/false boolean
+		for (int i = 0; i < c; i++) { // We looping now
+			if (c > length) {
+				judgement = false;
+				System.out.println("The amount being checked exceeds the length of the array");
+				break;  // The out print explains this section
+			}
+			else if (a[always] == a[fk]) {
+				System.out.println(a[always] + "=" + a[fk]);
+				always++;
+				fk++;
+				continue; // Checks our assigned start/end points. If matched the loop continues with our variables incremented
+			}
+			else {
+				System.out.println(a[always] + "!=" + a[fk]);
+				judgement = false;
+				break; // If our integers ever not match our boolean "judgement" returns false and our loop breaks
+			}
+		}
+		System.out.println(judgement); //Ending print of if our boolean was true or false
+	}
+}
